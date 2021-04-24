@@ -29,13 +29,10 @@ int check_winner(std::vector<char> grid, int player) {
 int get_choice(std::vector<char> grid) {
     int choice = 0;
     std::cin >> choice;
-    std::cout << "current choice: " << choice <<"\n";
-    if (choice > 9 || choice < 1 || grid[choice-1] == 'O' || grid[choice-1] == 'X') {
+    while (choice > 9 || choice < 1 || grid[choice-1] == 'O' || grid[choice-1] == 'X') {
         std::cout << "\n\nInvalid choice, please, choose again.\n";
         display_grid(grid);
-        while (choice > 9 || choice < 1 || grid[choice-1] == 'O' || grid[choice-1] == 'X') {
-            std::cin >> choice;
-        }
+        std::cin >> choice;
     }
     return choice;
 }
